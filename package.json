@@ -52,7 +52,7 @@
     "nekos.life": "^3.0.0",
     "newsapi": "^2.4.1",
     "node-cron": "^3.0.0",
-    "node-fetch": "2.6.6",
+    "node-fetch": "3.2.6",
     "node-gtts": "^2.0.2",
     "parse-ms": "2.1.0",
     "path": "^0.12.7",
