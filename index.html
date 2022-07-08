@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+        <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <meta name="author" content="IMGBun">
+                <meta name="description" content="Convert text in any language into image.">
+                <meta name="keywords" content="text to image, text to gif, text to jpg, text to png">
+
+                <link href="/favicon.ico" type="image/x-icon" rel="icon">
+                <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+                <meta property="og:title" content="">
+                <meta property="og:type" content="website">
+                <meta property="og:url" content="">
+                <meta property="og:site_name" content="">
+                <meta property="og:description" content="">
+                <meta property="og:image" content="">
+                <meta property="og:image:secure_url" content="">
+                <meta property="og:image:type" content="">
+                <meta property="og:image:width" content="">
+                <meta property="og:image:height" content="">
+
+                <title>Text to Image Service by IMGBun</title>
+
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/minty/bootstrap.min.css" rel="stylesheet">
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/loaders.css/0.1.2/loaders.min.css" rel="stylesheet">
+                <link href="https://cdn.imgbun.com/assets/css/styles.min.css" rel="stylesheet">
+
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/css/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" media="screen" />
+
+
+                <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="imgbun" data-description="Support me on Buy me a coffee!" data-message="" data-color="#EEBA4B" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EXLDNLJER"></script>
+                <script>
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+
+                        gtag('config', 'G-4EXLDNLJER');
+                </script>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6841894354556173" crossorigin="anonymous"></script>       
+        </head>
+
+        <body class="d-flex flex-column h-100">
+
+                <nav class="navbar navbar-expand-lg navbar-light p-3 px-md-4 bg-light border-bottom">
+                        <div class="container">
+                                <a href="/" class="navbar-brand"><img src="https://cdn.imgbun.com/assets/img/logo.png" width="256" height="64" alt="A free text to image service"></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+                                        <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                                        <ul class="navbar-nav ml-auto mr-md-5">
+                                                <li class="nav-item mr-md-2">
+                                                        <a class="nav-link text-dark" href="/account">Account</a>
+                                                </li>
+                                                <li class="nav-item mr-md-2">
+                                                        <a class="nav-link text-dark" href="/api">API</a>
+                                                </li>
+                                                <li class="nav-item mr-md-2">
+                                                        <a class="nav-link text-dark" href="/contact">Contact</a>
+                                                </li>
+                                        </ul>
+
+                                        <a href="/sign-up" class="btn btn-danger my-2 my-sm-0">Sign Up</a>
+                                </div>
+                        </div>
+                </nav>          <section class="jumbotron jumbotron-fluid bg-white">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-md-12">
+                                                <form>
+                                                        <div class="btn-toolbar mb-3 d-none d-md-flex">
+                                                                <label class="font-weight-bold d-block d-md-none">Font Color</label>
+                                                                <div id="color" class="input-group mr-md-2">
+                                                                        <div class="input-group-prepend d-none d-md-inline">
+                                                                                <span class="input-group-text border-0 bg-white"><i class="fa fa-font mt-1" data-toggle="tooltip" title="Font Color"></i></span>
+                                                                        </div>
+                                                                        <input type="text" name="color" class="form-control" value="#000000">
+                                                                        <div class="input-group-append">
+                                                                                <span class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                        </div>
+                                                                </div>
+
+                                                                <label class="font-weight-bold mt-3 d-block d-md-none">Background Color</label>
+                                                                <div id="background" class="input-group mr-md-2">
+                                                                        <div class="input-group-prepend d-none d-md-inline">
+                                                                                <span class="input-group-text border-0 bg-white"><i class="fa fa-image mt-1" data-toggle="tooltip" title="Background Color"></i></span>
+                                                                        </div>
+                                                                        <input type="text" name="background" class="form-control" value="#FFFFFF">
+                                                                        <div class="input-group-append">
+                                                                                <span class="input-group-text colorpicker-input-addon"><i></i></span>
+                                                                        </div>
+                                                                </div>
+
+                                                                <div class="input-group my-auto">
+                                                                        <div class="form-check mt-3 mt-md-0">
+                                                                                <input class="form-check-input" type="checkbox" value="true" id="transparent">
+                                                                                <label class="form-check-label" for="transparent"><i class="fa fa-low-vision d-none d-md-inline" data-toggle="tooltip" title="Transparent Background"></i><div class="d-block d-md-none">Transparent Background</div></label>
+                                                                        </div>
+                                                                </div>
+
+                                                                <label class="font-weight-bold mt-3 d-block d-md-none">Font Size</label>
+                                                                <div class="input-group mr-md-2">
+                                                                        <div class="input-group-prepend d-none d-md-inline">
+                                                                                <span class="input-group-text border-0 bg-white"><i class="fa fa-text-height mt-1" data-toggle="tooltip" title="Font Size"></i></span>
+                                                                        </div>
+                                                                        <select name="size" class="form-control">
+
+                                                                                        <option value="8"> 8 pt</option>
+                                                                                        <option value="9"> 9 pt</option>
+                                                                                        <option value="10"> 10 pt</option>
+                                                                                        <option value="11"> 11 pt</option>
+                                                                                        <option value="12"> 12 pt</option>
+                                                                                        <option value="13"> 13 pt</option>
+                                                                                        <option value="14"> 14 pt</option>
+                                                                                        <option value="15"> 15 pt</option>
+                                                                                        <option value="16"> 16 pt</option>
+                                                                                        <option value="17"> 17 pt</option>
+                                                                                        <option value="18"> 18 pt</option>
+                                                                                        <option value="19"> 19 pt</option>
+                                                                                        <option value="20"> 20 pt</option>
+                                                                                        <option value="21"> 21 pt</option>
+                                                                                        <option value="22"> 22 pt</option>
+                                                                                        <option value="23"> 23 pt</option>
+                                                                                        <option value="24" selected> 24 pt</option>
+                                                                                        <option value="25"> 25 pt</option>
+                                                                                        <option value="26"> 26 pt</option>
+                                                                                        <option value="27"> 27 pt</option>
+                                                                                        <option value="28"> 28 pt</option>
+                                                                                        <option value="29"> 29 pt</option>
+                                                                                        <option value="30"> 30 pt</option>
+                                                                                        <option value="31"> 31 pt</option>
+                                                                                        <option value="32"> 32 pt</option>
+                                                                                        <option value="33"> 33 pt</option>
+                                                                                        <option value="34"> 34 pt</option>
+                                                                                        <option value="35"> 35 pt</option>
+                                                                                        <option value="36"> 36 pt</option>
+                                                                                        <option value="37"> 37 pt</option>
+                                                                                        <option value="38"> 38 pt</option>
+                                                                                        <option value="39"> 39 pt</option>
+                                                                                        <option value="40"> 40 pt</option>
+        </select>
+                                                                </div>
+
+                                                                <label class="font-weight-bold mt-3 d-block d-md-none">Format</label>
+                                                                <div class="input-group mr-md-2">
+                                                                        <div class="input-group-prepend d-none d-md-inline">
+                                                                                <span class="input-group-text border-0 bg-white"><i class="fa fa-file-image-o mt-1" data-toggle="tooltip" title="Format"></i></span>
+                                                                        </div>
+                                                                        <select name="format" class="form-control">
+                                                                                <option value="gif"> .gif</option>
+                                                                                <option value="jpg"> .jpg</option>
+                                                                                <option value="png" selected> .png</option>
+                                                                        </select>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                                <textarea name="text" id="text" placeholder="Your text here..." rows="2" class="form-control form-control-lg"></textarea>
+                                                                <div class="invalid-feedback"></div>
+
+                                                                <div class="text-right d-md-none">
+                                                                        <a href="javascript:;" id="a-show-options" class="small">Show Options <i class="fa fa-plus-square-o"></i></a>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="d-flex">
+                                                                <div>
+                                                                        <button id="btn-convert" class="btn btn-success">Convert</button>
+                                                                </div>
+                                                                <div class="ml-auto">
+                                                                        <small class="text-muted text-right mr-auto"><strong>10,613,822</strong> images generated since 2010.</small>
+                                                                </div>
+                                                        </div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <div class="container">
+                        <div class="row mb-5">
+                                <div class="col-md-9">
+                                        <h3>Converts Text into Images</h3>
+
+                                        <p>
+                                                Almost all the messages you posted on Internet are unsecure and accessible by everyone around the world. <a href="https://en.wikipedia.org/wiki/Search_engine" target="_blank" rel="nofollow">Search engines</a>, robots, <a href="https://en.wikipedia.org/wiki/Web_crawler" target="_blank" rel="nofollow">crawlers</a> are collecting this information daily and indexed in their database. They make all your private information such as e-mail address, phone number, personal information searchable by the world.
+                                        </p>
+                                        <p>
+                                                This information provides a good opportunity for spammers or scammers to make you their victim. One easiest way to prevent these, is by converting your information into images before publish on Internet. <strong>IMGBun</strong> is built on this purpose to convert text into .gif, .jpg and .png images to protect your online privacy!
+                                        </p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                <img src="/assets/img/home-1.png" width="256" height="185" alt="Avoid identity theft">
+                                </div>
+                        </div>
+
+                        <div class="row mb-5 d-flex">
+                                <div class="col-md-3 order-2 order-md-1 text-center">
+                                        <img src="/assets/img/home-2.png" width="256" height="256" alt="Multiple languages are supported">
+                                </div>
+                                <div class="col-md-9 order-1 order-md-2">
+                                        <h3>Multiple Languages</h3>
+
+                                        <p>
+                                                Unlike other text-to-image services, <strong>IMGBun</strong> are supporting multiple languages, including western and eastern characters. Most of the non-English characters such as Arabic, Chinese, Japanese, Korea, Russian, Spanish, and Thai can display correctly. Below is a sample list of languages supported:
+
+                                                <ul class="row list-unstyled">
+
+                                                                <li class="col-md-4 d-flex">Arabic &rarr; &nbsp;<img src="https://i.imgbun.com/lZMG1Y06.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Bulgarian &rarr; &nbsp;<img src="https://i.imgbun.com/MzWC7mIgzKjFVsu.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Catalan &rarr; &nbsp;<img src="https://i.imgbun.com/PmzeX.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Chinese (Simplified) &rarr; &nbsp;<img src="https://i.imgbun.com/E1MVSmJ.png" 
+class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Chinese (Traditional) &rarr; &nbsp;<img src="https://i.imgbun.com/pvygKHfbrN5.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Czech &rarr; &nbsp;<img src="https://i.imgbun.com/yoWnZofx.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">French &rarr; &nbsp;<img src="https://i.imgbun.com/IiJ6daZVB3OUrnZ.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Greek &rarr; &nbsp;<img src="https://i.imgbun.com/sOk3GJzT88.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Gujarati &rarr; &nbsp;<img src="https://i.imgbun.com/UcUCyXBbZ6V72U.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Hebrew &rarr; &nbsp;<img src="https://i.imgbun.com/Xo01gZZcFd.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Hindi &rarr; &nbsp;<img src="https://i.imgbun.com/qtqw6nJqI.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Japanese &rarr; &nbsp;<img src="https://i.imgbun.com/YI3LX8DDHSFQ6.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Korean &rarr; &nbsp;<img src="https://i.imgbun.com/I4CHprkyN3j77Zu.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Persian &rarr; &nbsp;<img src="https://i.imgbun.com/tNjGRTZtN.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Portuguese &rarr; &nbsp;<img src="https://i.imgbun.com/L6UkVqmrPlS.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Russian &rarr; &nbsp;<img src="https://i.imgbun.com/39HKn9O6qH.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Serbian &rarr; &nbsp;<img src="https://i.imgbun.com/VoSaUChaFDo8.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Slovak &rarr; &nbsp;<img src="https://i.imgbun.com/Zh5dfcGWULkPyMhl.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Spanish &rarr; &nbsp;<img src="https://i.imgbun.com/7EjeFpZPLxx7Fo.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Tamil &rarr; &nbsp;<img src="https://i.imgbun.com/Fw0q3d.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Thai &rarr; &nbsp;<img src="https://i.imgbun.com/MnH25.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Turkish &rarr; &nbsp;<img src="https://i.imgbun.com/9nsTMUFjmOOIPyv.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Ukrainian &rarr; &nbsp;<img src="https://i.imgbun.com/nNvbo.png" class="my-auto"></li>
+                                                                <li class="col-md-4 d-flex">Vietnamese &rarr; &nbsp;<img src="https://i.imgbun.com/JCc.png" class="my-auto"></li>                                         </ul>
+                                        </p>
+                                </div>
+                        </div>
+                </div>
+
+                <div class="modal" id="modal-image" data-backdrop="static" data-keyboard="false" role="dialog" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                        <div class="modal-header border-0">
+                                                <h5 class="modal-title"></h5>
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <img src="" class="mx-auto d-block img-fluid mb-5">
+
+                                                <label>Direct Link</label>
+                                                <div class="input-group mb-3">
+                                                        <input type="text" class="form-control" readonly>
+                                                        <div class="input-group-append">
+                                                                <button class="btn btn-danger btn-copy" type="button"><i class="fa fa-copy"></i></button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <footer class="footer mt-auto py-3 border-top bg-warning">
+                        <div class="container">
+                                <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="d-none d-md-block">&copy; 2010 - 2022 <a href="https://imgbun.com">IMGBun</a>. All rights reserved.</div>     
+                                                <div class="d-sm d-md-none">&copy; 2022 <a href="https://imgbun.com">IMGBun</a>.</div>
+                                        </div>
+                                        <div class="col-md-6 text-md-right">
+                                                <a href="/terms-of-service">Terms of Service</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="/about">About</a>
+                                        </div>
+                                </div>
+                        </div>
+                </footer>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+                <script src="https://cdn.imgbun.com/assets/js/scripts.min.js"></script>
+
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/js/bootstrap-colorpicker.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+                <script src="https://cdn.imgbun.com/assets/js/home.min.js"></script>
+
+                <!-- 9554814a-b37e-5916-8449-12a876dcb538 -->
+        </body>
+
+</html>
