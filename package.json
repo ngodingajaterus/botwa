@@ -44,7 +44,7 @@
     "google-play-scraper": "^8.1.0",
     "hxz-api": "^1.0.1",
     "lolis.life": "^4.0.0",
-    "lowdb": "1.0.0",
+    "lowdb": "3.0.0",
     "marked": "^4.0.9",
     "moment-timezone": "^0.5.34",
     "music-lyrics": "^2.0.2",
