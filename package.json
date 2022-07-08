@@ -41,7 +41,7 @@
     "form-data": "^4.0.0",
     "fs-extra": "^10.0.0",
     "google-it": "^1.6.2",
-    "google-play-scraper": "^8.1.0",
+    "google-play-scraper": "^9.0.1",
     "hxz-api": "^1.0.1",
     "lolis.life": "^4.0.0",
     "lowdb": "1.0.0",
